@@ -1,7 +1,7 @@
 Em breve uma descrição detalhada (desconsiderar o que está descrito abaixo)
 
 <h1 align="center">
-  <img alt="Logo" src=".github/logo_vue.png" width="150px" />&nbsp;&nbsp;&nbsp;
+  <img alt="Logo" src=".github/logo_spring_boot.png" width="150px" />&nbsp;&nbsp;&nbsp;
   <img alt="Logo" src=".github/logo_vue.png" width="150px" />
 </h1>
 
