@@ -1,60 +1,95 @@
 <template>
   <div id="app">
-    <nav>
-      <div class="nav-wrapper blue darken-1">
-        <a href="#" class="brand-logo center">Produtos Front</a>
-      </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <p class="navbar-brand mx-auto m-0 p-1">CRUD</p>
     </nav>
 
     <div class="container">
-      <ul>
-        <li v-for="(erro, index) of errors" :key="index">
-          campo
-          <b>{{erro.field}}</b>
-          - {{erro.defaultMessage}}
+      <ul class="list-group my-2">
+        <li
+          class="list-group-item"
+          v-for="(erro, index) of errors"
+          :key="index"
+        >
+          O campo <b>{{ erro.field }}</b> - {{ erro.defaultMessage }}
         </li>
       </ul>
 
-      <form @submit.prevent="salvar">
-        <label>Nome</label>
-        <input type="text" placeholder="Nome" v-model="produto.nome" />
-        <label>Quantidade</label>
-        <input type="number" placeholder="QTD" v-model="produto.quantidade" />
-        <label>Valor</label>
-        <input type="text" placeholder="Valor" v-model="produto.valor" />
+      <div class="card mt-3">
+        <div class="card-header text-white bg-info">Cadastro</div>
+        <div class="card-body">
+          <form @submit.prevent="cadastrar">
+            <div class="form-group">
+              <label for="nome_field">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nome_field"
+                placeholder="Nome do Produto"
+                v-model="produto.nome"
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="quantidade_field">Quantidade</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="quantidade_field"
+                  placeholder="Quantidade"
+                  v-model="produto.quantidade"
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="valor_field">Valor</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="valor_field"
+                  placeholder="Valor"
+                  v-model="produto.valor"
+                />
+              </div>
+            </div>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
-        <button class="waves-effect waves-light btn-small">
-          Salvar
-          <i class="material-icons left">save</i>
-        </button>
-      </form>
-
-      <table>
-        <thead>
-          <tr>
-            <th>NOME</th>
-            <th>QTD</th>
-            <th>VALOR</th>
-            <th>OPÇÕES</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr v-for="produto of produtos" :key="produto.id">
-            <td>{{ produto.nome }}</td>
-            <td>{{ produto.quantidade }}</td>
-            <td>{{ produto.valor }}</td>
-            <td>
-              <button @click="editar(produto)" class="waves-effect btn-small blue darken-1">
-                <i class="material-icons">create</i>
-              </button>
-              <button @click="remover(produto)" class="waves-effect btn-small red darken-1">
-                <i class="material-icons">delete_sweep</i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="card mt-3">
+        <div class="card-header text-white bg-success">
+          Produtos Cadastrados
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th class="text-center">Quantidade</th>
+                <th class="text-center">Valor</th>
+                <th class="text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="produto of produtos" :key="produto.id">
+                <td>{{ produto.nome }}</td>
+                <td class="text-center">{{ produto.quantidade }}</td>
+                <td class="text-center">{{ produto.valor }}</td>
+                <td class="text-center">
+                  <button @click="remover(produto)" class="btn btn-danger">
+                    Excluir
+                  </button>
+                  <button @click="editar(produto)" class="btn btn-warning ml-2">
+                    Editar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -92,9 +127,9 @@ export default {
         });
     },
 
-    salvar() {
+    cadastrar() {
       if (!this.produto.id) {
-        Produto.salvar(this.produto)
+        Produto.cadastrar(this.produto)
           .then((resposta) => {
             this.produto = {};
             alert("Cadastrado com sucesso!");
@@ -124,7 +159,7 @@ export default {
 
     remover(produto) {
       if (confirm("Deseja excluir o produto?")) {
-        Produto.apagar(produto)
+        Produto.excluir(produto.id)
           .then((resposta) => {
             this.listar();
             this.errors = {};

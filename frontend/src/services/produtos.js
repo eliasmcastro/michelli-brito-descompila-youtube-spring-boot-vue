@@ -1,7 +1,7 @@
 import { http } from "./config";
 
 export default {
-  salvar: (produto) => {
+  cadastrar: (produto) => {
     return http.post("produto", produto);
   },
 
@@ -13,7 +13,7 @@ export default {
     return http.get("produtos");
   },
 
-  apagar: (produto) => {
-    return http.delete("produto", { data: produto });
+  excluir: (id) => {
+    return http.delete("produto/" + id);
   },
 };

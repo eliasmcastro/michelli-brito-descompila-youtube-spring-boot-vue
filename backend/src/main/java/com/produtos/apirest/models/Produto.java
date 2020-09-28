@@ -10,9 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
 @Entity
-@Table(name="TB_PRODUTO")
+@Table(name="produto")
 public class Produto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -29,7 +28,6 @@ public class Produto implements Serializable{
 	
 	@NotNull
 	private BigDecimal valor;
-	
 	
 	public long getId() {
 		return id;
