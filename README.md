@@ -163,13 +163,13 @@ Acessar http://localhost:8081
 - Executar `docker pull mysql` para baixar a máquina virtual do MySQL
 - Executar `docker run --name apirestspringboot -p 3306:3306 -e MYSQL_ROOT_PASSWORD=senha -d mysql:latest` para criar uma instância do MySQL
   - `apirestspringboot` é o nome do container que iremos criar
-  - `-p` serve para fazer o redirecionamento da porta `3306` do sistema operacional do computador para a porta `3306` da máquina virtual, pois o MySQL será executado em outro sistema operacional
+  - `-p` serve para fazer o redirecionamento da porta `3306` do sistema operacional do computador para a porta `3306` da máquina virtual
   - `-e` serve para definir qual será a senha do usuário root do MySQL
   - `-d` serve para selecionar qual imagem iremos utilizar
-- Executar `docker ps` para exibir quais imagens estão rodando
-- Executar `docker ps -a` para exibir quais imagens que estão pausadas
-- Executar `docker start apirestspringboot` para subir uma imagem que está pausada
-  - `apirestspringboot` é o nome da máquina
+- Executar `docker ps` para exibir quais containers estão rodando
+- Executar `docker ps -a` para exibir quais containers que estão pausados
+- Executar `docker start apirestspringboot` para subir o container que está pausado
+  - `apirestspringboot` é o nome do container
   - _Obs: Pode ser utilizado algum software para ter acesso ao banco de dados, uma sugestão seria o MySQL Workbench_
   - Os dados para conexão será
     - HOST: 127.0.0.1
