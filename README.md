@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img alt="Logo" src=".github/logo_spring_boot.png" width="150px" />&nbsp;&nbsp;&nbsp;
-  <img alt="Logo" src=".github/logo_vue.png" width="150px" />
+  <img alt="Logo" src=".github/logo_spring_boot.png" width="130px" />&nbsp;&nbsp;&nbsp;
+  <img alt="Logo" src=".github/logo_vue.png" width="130px" />
 </h1>
 
 <h3 align="center">
@@ -54,7 +54,7 @@
 **1. Clonar este repositório**
 
 ```bash
-git clone https://github.com/eliasmcastro/michelli-brito-descompila-youtube-spring-boot-vue.git
+git clone https://github.com/eliasmcastro/michelli-brito-descompila-youtube-spring-boot-vuejs.git
 ```
 
 **2. Criar um banco de bados MySQL**
@@ -65,19 +65,23 @@ create database apirest
 
 **3. Alterar usuário e senha MySQL de acordo com sua instalação**
 
-- abrir `backend/src/main/resources/application.properties`
+- Abrir `backend/src/main/resources/application.properties`
 
-- alterar (se necessário) o host:porta e nome do banco de dados em `spring.datasource.url= jdbc:mysql://HOST:PORTA/NOME_BANCO_DADOS`
+- Alterar (se necessário) o host:porta e nome do banco de dados em `spring.datasource.url= jdbc:mysql://HOST:PORTA/NOME_BANCO_DADOS`
 
-- alterar `spring.datasource.username` e `spring.datasource.password` de acordo com sua instalação do MySQL
+- Alterar `spring.datasource.username` e `spring.datasource.password` de acordo com sua instalação do MySQL
 
 **4. Executar aplicação**
 
 Se for executar pelo Eclipse
 
-- abrir o Eclipse -> File -> Import -> Existing Marven Projects (clicar em Next) -> Selecionar a pasta backend do projeto (clicar em Finish)
+- Abrir o Eclipse -> File -> Import -> Existing Marven Projects (clicar em Next) -> Selecionar a pasta backend do projeto (clicar em Finish)
+- Executar Application.java (src/com.produtos.apirest) para iniciar o backend da aplicação
 
-- executar Application.java (src/com.produtos.apirest) para iniciar o backend da aplicação
+Se for executar pelo IntelliJ IDEA
+
+- Abrir o IntelliJ IDEA -> File -> Open -> Selecionar a pasta backend do projeto (clicar em OK)
+- Executar Application.java (src/com.produtos.apirest) para iniciar o backend da aplicação
 
 Se for executar com o Maven
 
@@ -99,8 +103,6 @@ _Dica: utilizar o Insomnia para testar as rotas_
 #### Requisitos
 
 - O back-end está sendo executado
-
-#### Passos para a configuração
 
 Acessar http://localhost:8080/swagger-ui.html
 
@@ -141,18 +143,21 @@ Acessar http://localhost:8081
 - Realizar a instalação
 - Configuar o caminho da instalação do Java nas variáveis de ambiente do Windows de acordo com esse [tutorial](https://medium.com/@mauriciogeneroso/configurando-java-4-como-configurar-as-vari%C3%A1veis-java-home-path-e-classpath-no-windows-46040950638f)
 
-#### [Eclipse](https://www.eclipse.org/downloads/packages)
+#### [Eclipse](https://www.eclipse.org/downloads/packages) / [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea)
 
-- Efetuar o download do Eclipse. Recomenda-se utilizar a versão (package) Eclipse IDE for Enterprise Java Developers
-- Extrair o zip para uma pasta em seu computador
+- Eclipse
+  - Efetuar o download do Eclipse. Recomenda-se utilizar a versão (package) Eclipse IDE for Enterprise Java Developers
+  - Extrair o zip para uma pasta em seu computador
+- IntelliJ IDEA
+  - Efetuar o download do IntelliJ IDEA e realizar a instalação
 
-#### [Marven](https://maven.apache.org)
+#### [Maven](https://maven.apache.org)
 
-- Realizar a instação e configuração do marven conforme esse [tutorial](https://www.devmedia.com.br/introducao-ao-maven/25128#2)
+- Realizar a instação e configuração do maven conforme esse [tutorial](https://www.devmedia.com.br/introducao-ao-maven/25128#2)
 
-#### Start Spring
+#### [Start Spring](https://start.spring.io)
 
-- Este site [https://start.spring.io](https://start.spring.io/) ajuda na criação de um novo projeto Spring Boot
+- Este site [https://start.spring.io](https://start.spring.io) ajuda na criação de um novo projeto Spring Boot
 
 #### [Docker](https://www.docker.com) & MySQL
 
@@ -170,8 +175,9 @@ Acessar http://localhost:8081
 - Executar `docker ps -a` para exibir quais containers que estão pausados
 - Executar `docker start apirestspringboot` para subir o container que está pausado
   - `apirestspringboot` é o nome do container
-  - _Obs: Pode ser utilizado algum software para ter acesso ao banco de dados, uma sugestão seria o MySQL Workbench_
-  - Os dados para conexão será
+  - _Obs: Pode ser utilizado algum software para ter acesso ao banco de dados, uma sugestão seria o MySQL Workbench ou você pode se conectar ao MySQL por linha de comando atravês do combando abaixo:_
+    - `docker exec -it nomeContainer mysql -u nomeUsuario -p`
+  - Os dados para conexão será:
     - HOST: 127.0.0.1
     - PORT: 3306
     - USER: root
