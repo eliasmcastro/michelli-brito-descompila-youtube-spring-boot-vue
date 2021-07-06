@@ -42,7 +42,7 @@
 
 - [Java SDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) ou versões posteriores
 - [Banco de Dados MySQL](https://www.mysql.com)
-- [Eclipse](https://www.eclipse.org/downloads/packages) ou [Marven](https://maven.apache.org)
+- [Eclipse](https://www.eclipse.org/downloads/packages) / [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea) ou [Marven](https://maven.apache.org)
 
 #### Opcional
 
